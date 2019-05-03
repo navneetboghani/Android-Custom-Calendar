@@ -21,8 +21,8 @@ public class GridAdapter extends ArrayAdapter {
     private static final String TAG = GridAdapter.class.getSimpleName();
     private LayoutInflater mInflater;
     private List<Date> monthlyDates;
-    public List<Date> weekenddate=new ArrayList<>();
-    public List<Date> weekoffday=new ArrayList<>();
+    public static List<Date> weekenddate=new ArrayList<>();
+    public static List<Date> weekoffday=new ArrayList<>();
     private Calendar currentDate;
     Activity activity;
     public GridAdapter(Context context, List<Date> monthlyDates, Calendar currentDate) {
@@ -131,6 +131,8 @@ public class GridAdapter extends ArrayAdapter {
 
             if (dayOfWeek==1)
             {
+                if(weekoffday.size()>0 && weekenddate.size()>0)
+                    weekoffday.clear();
                 weekenddate.clear();
                 weekenddate.add(mDate);
                 dateCal.add(Calendar.DATE, 1);
@@ -140,11 +142,14 @@ public class GridAdapter extends ArrayAdapter {
                 dateCal.add(Calendar.DATE, 1);
                 weekenddate.add(dateCal.getTime());
                 notifyDataSetChanged();
+
                 return;
 
             }
             if (dayOfWeek==2)
             {
+                if(weekoffday.size()>0 && weekenddate.size()>0)
+                    weekoffday.clear();
                 weekenddate.clear();
                 dateCal.add(Calendar.DATE, -1);
                 weekenddate.add(dateCal.getTime());
@@ -160,6 +165,8 @@ public class GridAdapter extends ArrayAdapter {
             }
             if (dayOfWeek==3)
             {
+                if(weekoffday.size()>0 && weekenddate.size()>0)
+                    weekoffday.clear();
                 weekenddate.clear();
                 dateCal.add(Calendar.DATE, -2);
                 weekenddate.add(dateCal.getTime());
@@ -175,6 +182,8 @@ public class GridAdapter extends ArrayAdapter {
             }
             if (dayOfWeek==4)
             {
+                if(weekoffday.size()>0 && weekenddate.size()>0)
+                    weekoffday.clear();
                 weekenddate.clear();
                 dateCal.add(Calendar.DATE, -3);
                 weekenddate.add(dateCal.getTime());
@@ -190,6 +199,8 @@ public class GridAdapter extends ArrayAdapter {
             }
             if (dayOfWeek==5)
             {
+                if(weekoffday.size()>0 && weekenddate.size()>0)
+                    weekenddate.clear();
                 weekoffday.clear();
                 weekoffday.add(mDate);
                 dateCal.add(Calendar.DATE, 1);
@@ -201,6 +212,8 @@ public class GridAdapter extends ArrayAdapter {
             }
             if (dayOfWeek==6)
             {
+                if(weekoffday.size()>0 && weekenddate.size()>0)
+                    weekenddate.clear();
                 weekoffday.clear();
                 dateCal.add(Calendar.DATE, -1);
                 weekoffday.add(dateCal.getTime());
@@ -213,6 +226,8 @@ public class GridAdapter extends ArrayAdapter {
             }
             if (dayOfWeek==7)
             {
+                if(weekoffday.size()>0 && weekenddate.size()>0)
+                    weekenddate.clear();
                 weekoffday.clear();
                 dateCal.add(Calendar.DATE, -2);
                 weekoffday.add(dateCal.getTime());
